@@ -8,6 +8,8 @@ When you [create a namespace](https://www.npmjs.com/package/ovsx#create-a-namesp
 
 ## How to Claim a Namespace
 
-Claiming ownership of a namespace on [open-vsx.org](https://open-vsx.org) is done publicly by creating an issue in [github.com/eclipse/open-vsx.org](https://github.com/eclipse/open-vsx.org/issues/new/choose). By this the act of granting ownership is totally transparent, and you can simply comment on an existing issue in case you want to refute a previously granted ownership.
+Before a namespace can be associated with your user account, you need to log in to [open-vsx.org](https://open-vsx.org).
+
+Claiming ownership of a namespace is done publicly by creating an issue in [github.com/eclipse/open-vsx.org](https://github.com/eclipse/open-vsx.org/issues/new/choose). By this the act of granting ownership is totally transparent, and you can simply comment on an existing issue in case you want to refute a previously granted ownership.
 
 If for some reason you do not want to request namespace ownership in public, please write to [open-vsx@typefox.io](mailto:open-vsx@typefox.io).
