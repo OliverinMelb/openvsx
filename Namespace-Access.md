@@ -16,6 +16,21 @@ Claiming ownership of a namespace is done publicly by creating an issue in [gith
 
 If for some reason you do not want to request namespace ownership in public, please write to [open-vsx@typefox.io](mailto:open-vsx@typefox.io).
 
+## How to Manage Namespace Members
+
+If you are an owner of a namespace, you are allowed to add other users to that namespace and to remove them again. This can be done in the [Namespaces](https://open-vsx.org/user-settings/namespaces) section of the settings page. There are two kinds of roles you can assign to namespace members:
+
+ * _Owner_ &ndash; the same authority as you have
+ * _Contributor_ &ndash; can publish extensions to that namespace, but cannot see or change namespace members
+
 ## The @open-vsx Account
 
-The [@open-vsx](https://github.com/open-vsx) service account is used to publish extensions which are not (yet) published by their original maintainers. The list of published extensions is managed in the [publish-extensions](https://github.com/open-vsx/publish-extensions) repository. Most extensions on this list are in public namespaces, and they are removed from the list when a maintainer claims ownership. However, in case a namespace owner does not continue publishing extensions that are relevant to the community, these extensions can be put back to the list, and [@open-vsx](https://github.com/open-vsx) will publish them _even if their namespace is restricted_. This is an exclusive privilege of the [@open-vsx](https://github.com/open-vsx) account, and of course it should be used sparingly. In many cases a better alternative is to fork the extensions and publish them under a different namespace.
+The [@open-vsx](https://github.com/open-vsx) service account is used to publish extensions which are not (yet) published by their original maintainers. The list of published extensions is managed in the [publish-extensions](https://github.com/open-vsx/publish-extensions) repository. Most extensions on this list are in public namespaces, and they are removed from the list when a maintainer claims ownership. However, in case a namespace owner does not continue publishing extensions that are relevant to the community, these extensions can be put back to the list, and [@open-vsx](https://github.com/open-vsx) will publish them _even if their namespace is restricted_. This is an exclusive privilege of the [@open-vsx](https://github.com/open-vsx) account, and of course it should be used sparingly. A better alternative might be to ask the namespace owner to [invite another person as contributor](#how-to-manage-namespace-members) so that person can take over publishing.
+
+## Why is a Warning Shown?
+
+A warning icon ⚠️ is shown for some extensions, along with a hint that the publishing user is not related to the namespace of the extension. There are multiple situations that can cause this warning.
+
+ * User _A_ published the extension while its namespace was public. Later user _B_ [claimed ownership](#how-to-claim-a-namespace) of the namespace, but did not yet publish a new version of the extension.
+ * User _A_ was [invited as contributor](#how-to-manage-namespace-members) of the namespace by the owner _B_. User _A_ published the extension, but then user _B_ removed the contributor role from _A_.
+ * The extension was published by [the privileged @open-vsx account](#the-open-vsx-account) although the namespace was owned by someone else.
