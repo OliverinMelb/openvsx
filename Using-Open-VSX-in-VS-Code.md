@@ -12,7 +12,7 @@ Open VSX has an adapter to the VS Code Marketplace API. In order to use this, ad
 The `serviceUrl` is used to search extensions, and `itemUrl` redirects to extension detail pages when you click on an extension name in VS Code. VS Code may display a warning before opening a web browser to the [open-vsx.org](https://open-vsx.org) domain. In order to suppress these warnings, either edit the trusted domains with the corresponding button in the pop-up dialog, or add the following to your `product.json`:
 
 ```
-linkProtectionTrustedDomains: [
+"linkProtectionTrustedDomains": [
     "https://open-vsx.org"
 ]
 ```
