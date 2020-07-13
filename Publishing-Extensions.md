@@ -42,3 +42,9 @@ The `ovsx` tool uses [vsce](https://www.npmjs.com/package/vsce) internally to pa
 #### 4. See the result
 
 If the `ovsx` tool reported that publishing was successful, you should find your extension on [open-vsx.org](https://open-vsx.org). Please check all metadata for correctness.
+
+-----
+
+### GitHub Action
+
+You can find a [GitHub action](https://docs.github.com/en/actions) that allows publishing to Open VSX at [HaaLeo/publish-vscode-extension](https://github.com/HaaLeo/publish-vscode-extension#readme).
