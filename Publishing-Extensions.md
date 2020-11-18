@@ -2,7 +2,7 @@
 
 This guide describes publishing to the public registry at [open-vsx.org](https://open-vsx.org). The same steps apply to registries that are hosted elsewhere, but make sure to pass the correct URL to the [ovsx](https://www.npmjs.com/package/ovsx) tool.
 
-*IMPORTANT: UPCOMING CHANGES*
+**IMPORTANT: UPCOMING CHANGES**
 
 The [open-vsx.org](https://open-vsx.org) website is going to be transferred to the [Eclipse Foundation](https://www.eclipse.org/) on December 9th. This transfer will involve some changes for publishers. Please read [the announcement](https://blogs.eclipse.org/post/brian-king/open-vsx-registry-under-new-management) for more information.
 
