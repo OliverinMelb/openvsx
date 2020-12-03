@@ -2,7 +2,7 @@
 
 ![Overview diagram](./images/openvsx-architecture.png)
 
-The central element is the server application, which is available in the [openvsx-server](https://github.com/eclipse/openvsx/packages/128014) Docker image. It is a [Spring Boot](https://spring.io/projects/spring-boot) application and needs an `application.yml` file to [configure the deployment](#configuring-application.yml). Open VSX does not provide any facility to deploy the other components (database, search engine etc.) because there are numerous ways how the infrastructure can be set up. Using Kubernetes is one option, but that is not mandatory.
+The central element is the server application, which is available in the [openvsx-server](https://github.com/orgs/eclipse/packages/container/package/openvsx-server) Docker image. It is a [Spring Boot](https://spring.io/projects/spring-boot) application and needs an `application.yml` file to [configure the deployment](#configuring-application.yml). Open VSX does not provide any facility to deploy the other components (database, search engine etc.) because there are numerous ways how the infrastructure can be set up. Using Kubernetes is one option, but that is not mandatory.
 
 The database holding all metadata of published extensions is a [PostgreSQL](https://www.postgresql.org) instance. In case no additional file storage is used, all files are stored as binary data in the database. Though this setup is supported by Open VSX, it considerably increases storage and network thoughput of the database, so using an external file storage is recommended. Currently [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) and [Google Cloud Storage](https://cloud.google.com/storage) are supported as external storage providers.
 
@@ -278,7 +278,7 @@ Current version of the Eclipse Publisher Agreement.
 
 ## Adding the Web UI
 
-The Docker image of the server application does not include the web UI. The reason for this is that the UI can be customized. In case you don't need customization, you can use the [default web UI image](https://github.com/eclipse/openvsx/packages/324117) and deploy it next to the server.
+The Docker image of the server application does not include the web UI. The reason for this is that the UI can be customized. In case you don't need customization, you can use the [default web UI image](https://github.com/orgs/eclipse/packages/container/package/openvsx-webui) and deploy it next to the server.
 
 Customization of the UI is done by creating an npm package with a dependency on [openvsx-webui](https://www.npmjs.com/package/openvsx-webui), which is a library of [React](https://reactjs.org) components. A minimal frontend app is shown in the following TypeScript-React (`tsx`) code.
 
