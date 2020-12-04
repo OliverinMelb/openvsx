@@ -23,6 +23,8 @@ If you are an owner of a namespace, you are allowed to add other users to that n
  * _Owner_ &ndash; the same authority as you have
  * _Contributor_ &ndash; can publish extensions to that namespace, but cannot see or change namespace members
 
+Service accounts (bots) should be added as contributors.
+
 ## The @open-vsx Account
 
 The [@open-vsx](https://github.com/open-vsx) service account is used to publish extensions which are not (yet) published by their original maintainers. The list of published extensions is managed in the [publish-extensions](https://github.com/open-vsx/publish-extensions) repository. Most extensions on this list are in public namespaces, and they are removed from the list when a maintainer claims ownership. However, in case a namespace owner does not continue publishing extensions that are relevant to the community, these extensions can be put back to the list, and [@open-vsx](https://github.com/open-vsx) will publish them _even if their namespace is restricted_. This is an exclusive privilege of the [@open-vsx](https://github.com/open-vsx) account, and of course it should be used sparingly. A better alternative might be to ask the namespace owner to [invite another person as contributor](#how-to-manage-namespace-members) so that person can take over publishing.
