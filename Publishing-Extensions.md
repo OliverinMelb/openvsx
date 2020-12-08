@@ -53,7 +53,7 @@ npx ovsx publish -p <token>
 
 The `ovsx` tool uses [vsce](https://www.npmjs.com/package/vsce) internally to package extensions, which runs the `vscode:prepublish` script defined in the package.json as part of that process. If the extension uses [Yarn](https://yarnpkg.com) to run scripts, add the argument `--yarn`.
 
-#### 6. See the result
+#### See the result
 
 If the `ovsx` tool reported that publishing was successful, you should find your extension on [open-vsx.org](https://open-vsx.org). Please check all metadata for correctness.
 
