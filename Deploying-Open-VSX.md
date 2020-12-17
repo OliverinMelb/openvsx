@@ -148,21 +148,13 @@ Weight of download counts for computing relevance. This has an impact on the ord
 
 Weight of publishing timestamps for computing relevance (newer extensions are ranked higher). This has an impact on the order of search results when `sortBy` is set to `relevance`.
 
-| Property      | `ovsx.elasticsearch.relevance.public`
-|---------------|---------------------------------------
-| Type          | double
-| Default       | `0.8`
-| Compatibility | Since 0.1
-
-Relevance factor for public namespaces. The combined relevance from the `averageRating`, `downloadCount` and `timestamp` criteria is multiplied with this value if the extension's namespace has no owner.
-
-| Property      | `ovsx.elasticsearch.relevance.unrelated`
+| Property      | `ovsx.elasticsearch.relevance.unverified`
 |---------------|------------------------------------------
 | Type          | double
 | Default       | `0.5`
 | Compatibility | Since 0.1
 
-Relevance factor for unrelated publishers. The combined relevance from the `averageRating`, `downloadCount` and `timestamp` criteria is multiplied with this value if the publisher of the extension is not a member of the extension's namespace.
+Relevance factor for unverified extension versions. The combined relevance from the `averageRating`, `downloadCount` and `timestamp` criteria is multiplied with this value if the publisher of the extension is not a member of the extension's namespace or the namespace has no owner.
 
 ### File Storage
 
