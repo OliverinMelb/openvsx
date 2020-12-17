@@ -35,7 +35,7 @@ Run the following command, replacing `<name>` with the value of your extension's
 npx ovsx create-namespace <name> -p <token>
 ```
 
-Creating a namespace does _not_ automatically give you the exclusive publishing rights. Initially, everyone will be able to publish an extension with the new namespace. If you want exclusive publishing rights, you can [claim ownership of the namespace](./Namespace-Access).
+Creating a namespace does _not_ automatically assign you as verified owner. If you want the published extensions to be marked as _verified_, you can [claim ownership of the namespace](./Namespace-Access).
 
 #### 5. Package and upload
 
