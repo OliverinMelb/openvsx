@@ -12,13 +12,13 @@ An eclipse.org account is necessary to sign a Publisher Agreement with the Eclip
 
 Log in to [open-vsx.org](https://open-vsx.org) by authorizing the application with your GitHub account.
 
-Navigate to the [Profile](https://open-vsx.org/user-settings/profile) page (click on your avatar &rarr; _Settings_). Click on _Log in with Eclipse_ and then authorize the application to access your eclipse.org account.
+Navigate to the [open-vsx.org Profile](https://open-vsx.org/user-settings/profile) page (click on your avatar &rarr; _Settings_). Click on _Log in with Eclipse_ and then authorize the application to access your eclipse.org account.
 
-If the Eclipse login process is successful, you will see a button labeled _Show Publisher Agreement_ on your profile page. Click that button, read the agreement text to the bottom and click _Agree_ if you consent to publishing under these terms.
+If the Eclipse login process is successful, you will see a button labeled _Show Publisher Agreement_ on your open-vsx.org profile page. Click that button, read the agreement text to the bottom and click _Agree_ if you consent to publishing under these terms.
 
 #### 3. Create an access token
 
-Navigate to the [Access Tokens](https://open-vsx.org/user-settings/tokens) page (click on your avatar &rarr; _Settings_ &rarr; _Access Tokens_).
+Navigate to the [open-vsx.org Access Tokens](https://open-vsx.org/user-settings/tokens) page (click on your avatar &rarr; _Settings_ &rarr; _Access Tokens_).
 
 Click _Generate New Token_ and enter a description. We recommend to generate a new token for each environment where you want to publish, e.g. a local machine, cloud IDE, or CI build. The description will help you to identify a token in case you want to revoke it (you don't need it anymore or you suspect it has been stolen).
 
