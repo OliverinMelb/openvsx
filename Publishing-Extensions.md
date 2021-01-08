@@ -16,6 +16,8 @@ Navigate to the [open-vsx.org Profile](https://open-vsx.org/user-settings/profil
 
 If the Eclipse login process is successful, you will see a button labeled _Show Publisher Agreement_ on your open-vsx.org profile page. Click that button, read the agreement text to the bottom and click _Agree_ if you consent to publishing under these terms.
 
+Note that the "Eclipse Contributor Agreement" (ECA) is a different agreement used to contribute code to Eclipse open-source projects.
+
 #### 3. Create an access token
 
 Navigate to the [open-vsx.org Access Tokens](https://open-vsx.org/user-settings/tokens) page (click on your avatar &rarr; _Settings_ &rarr; _Access Tokens_).
