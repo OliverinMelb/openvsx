@@ -10,7 +10,7 @@ An eclipse.org account is necessary to sign a Publisher Agreement with the Eclip
 
 #### 2. Log in and sign the Publisher Agreement
 
-Log in to [open-vsx.org](https://open-vsx.org) by authorizing the application with your GitHub account.
+Log in to [open-vsx.org](https://open-vsx.org) by authorizing the application with your GitHub account (click on the account icon on the top right corner).
 
 Navigate to the [open-vsx.org Profile](https://open-vsx.org/user-settings/profile) page (click on your avatar &rarr; _Settings_). Click on _Log in with Eclipse_ and then authorize the application to access your eclipse.org account.
 
