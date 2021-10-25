@@ -162,7 +162,7 @@ Password for trust store file.
 |---------------|---------------------------------------
 | Type          | double
 | Default       | `1.0`
-| Compatibility | Since 0.1, **deprecated** in 0.2
+| Compatibility | Since 0.1, **deprecated** in 0.2 (use `ovsx.search.relevance.rating`)
 
 Weight of user ratings for computing relevance. This has an impact on the order of search results when `sortBy` is set to `relevance`.
 
@@ -170,7 +170,7 @@ Weight of user ratings for computing relevance. This has an impact on the order 
 |---------------|------------------------------------------
 | Type          | double
 | Default       | `1.0`
-| Compatibility | Since 0.1, **deprecated** in 0.2
+| Compatibility | Since 0.1, **deprecated** in 0.2 (use `ovsx.search.relevance.downloads`)
 
 Weight of download counts for computing relevance. This has an impact on the order of search results when `sortBy` is set to `relevance`.
 
@@ -178,7 +178,7 @@ Weight of download counts for computing relevance. This has an impact on the ord
 |---------------|------------------------------------------
 | Type          | double
 | Default       | `1.0`
-| Compatibility | Since 0.1, **deprecated** in 0.2
+| Compatibility | Since 0.1, **deprecated** in 0.2 (use `ovsx.search.relevance.timestamp`)
 
 Weight of publishing timestamps for computing relevance (newer extensions are ranked higher). This has an impact on the order of search results when `sortBy` is set to `relevance`.
 
@@ -186,7 +186,7 @@ Weight of publishing timestamps for computing relevance (newer extensions are ra
 |---------------|------------------------------------------
 | Type          | double
 | Default       | `0.5`
-| Compatibility | Since 0.1, **deprecated** in 0.2
+| Compatibility | Since 0.1, **deprecated** in 0.2 (use `ovsx.search.relevance.unverified`)
 
 Relevance factor for unverified extension versions. The combined relevance from the `averageRating`, `downloadCount` and `timestamp` criteria is multiplied with this value if the publisher of the extension is not a member of the extension's namespace or the namespace has no owner.
 
