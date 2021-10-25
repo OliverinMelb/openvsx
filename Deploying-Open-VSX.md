@@ -6,7 +6,7 @@ The central element is the server application, which is available in the [openvs
 
 The database holding all metadata of published extensions is a [PostgreSQL](https://www.postgresql.org) instance. In case no additional file storage is used, all files are stored as binary data in the database. Though this setup is supported by Open VSX, it considerably increases storage and network thoughput of the database, so using an external file storage is recommended. Currently [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) and [Google Cloud Storage](https://cloud.google.com/storage) are supported as external storage providers.
 
-[Elasticsearch](https://www.elastic.co/elasticsearch/) is used as search engine for search queries from the web UI. This component is optional: omitting it disables the search functionality, but all other Open VSX features are still available.
+[Elasticsearch](https://www.elastic.co/elasticsearch/) is used as default search engine for search queries from the web UI. As an alternative, you can choose to search via database queries, which will likely result in worse performance, or to completely disable the search functionality. In the latter case, all other Open VSX features are still available.
 
 User authentication is done with [OAuth](https://oauth.net). Currently only [GitHub](https://docs.github.com/en/free-pro-team@latest/developers/apps/building-oauth-apps) is supported as OAuth provider.
 
@@ -50,6 +50,40 @@ Base URL of the web UI. This is required only if it's different from the server.
 
 Routes to be forwarded to `/` because they are handled by the frontend.
 
+### Search Options
+
+| Property      | `ovsx.search.relevance.rating`
+|---------------|---------------------------------------
+| Type          | double
+| Default       | `1.0`
+| Compatibility | Since 0.2
+
+Weight of user ratings for computing relevance. This has an impact on the order of search results when `sortBy` is set to `relevance`.
+
+| Property      | `ovsx.search.relevance.downloads`
+|---------------|------------------------------------------
+| Type          | double
+| Default       | `1.0`
+| Compatibility | Since 0.2
+
+Weight of download counts for computing relevance. This has an impact on the order of search results when `sortBy` is set to `relevance`.
+
+| Property      | `ovsx.search.relevance.timestamp`
+|---------------|------------------------------------------
+| Type          | double
+| Default       | `1.0`
+| Compatibility | Since 0.2
+
+Weight of publishing timestamps for computing relevance (newer extensions are ranked higher). This has an impact on the order of search results when `sortBy` is set to `relevance`.
+
+| Property      | `ovsx.search.relevance.unverified`
+|---------------|------------------------------------------
+| Type          | double
+| Default       | `0.5`
+| Compatibility | Since 0.2
+
+Relevance factor for unverified extension versions. The combined relevance from the `averageRating`, `downloadCount` and `timestamp` criteria is multiplied with this value if the publisher of the extension is not a member of the extension's namespace or the namespace has no owner.
+
 ### Elasticsearch
 
 | Property      | `ovsx.elasticsearch.enabled`
@@ -58,7 +92,7 @@ Routes to be forwarded to `/` because they are handled by the frontend.
 | Default       | `true`
 | Compatibility | Since 0.1
 
-Whether to enable search functionality. By switching this off, it is not necessary to deploy Elasticsearch, but users will not be able to search extensions.
+Whether to enable search functionality though Elasticsearch. By switching this off, it is not necessary to deploy Elasticsearch. Cannot be used together with `ovsx.databasesearch.enabled`.
 
 | Property      | `ovsx.elasticsearch.clear-on-start`
 |---------------|-------------------------------------
@@ -128,7 +162,7 @@ Password for trust store file.
 |---------------|---------------------------------------
 | Type          | double
 | Default       | `1.0`
-| Compatibility | Since 0.1
+| Compatibility | Since 0.1, **deprecated** in 0.2
 
 Weight of user ratings for computing relevance. This has an impact on the order of search results when `sortBy` is set to `relevance`.
 
@@ -136,7 +170,7 @@ Weight of user ratings for computing relevance. This has an impact on the order 
 |---------------|------------------------------------------
 | Type          | double
 | Default       | `1.0`
-| Compatibility | Since 0.1
+| Compatibility | Since 0.1, **deprecated** in 0.2
 
 Weight of download counts for computing relevance. This has an impact on the order of search results when `sortBy` is set to `relevance`.
 
@@ -144,7 +178,7 @@ Weight of download counts for computing relevance. This has an impact on the ord
 |---------------|------------------------------------------
 | Type          | double
 | Default       | `1.0`
-| Compatibility | Since 0.1
+| Compatibility | Since 0.1, **deprecated** in 0.2
 
 Weight of publishing timestamps for computing relevance (newer extensions are ranked higher). This has an impact on the order of search results when `sortBy` is set to `relevance`.
 
@@ -152,9 +186,19 @@ Weight of publishing timestamps for computing relevance (newer extensions are ra
 |---------------|------------------------------------------
 | Type          | double
 | Default       | `0.5`
-| Compatibility | Since 0.1
+| Compatibility | Since 0.1, **deprecated** in 0.2
 
 Relevance factor for unverified extension versions. The combined relevance from the `averageRating`, `downloadCount` and `timestamp` criteria is multiplied with this value if the publisher of the extension is not a member of the extension's namespace or the namespace has no owner.
+
+### Database Search
+
+| Property      | `ovsx.databasesearch.enabled`
+|---------------|------------------------------
+| Type          | boolean
+| Default       | `false`
+| Compatibility | Since 0.2
+
+Whether to enable search functionality though DB queries. Cannot be used together with `ovsx.elasticsearch.enabled`.
 
 ### File Storage
 
