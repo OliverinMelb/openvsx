@@ -2,7 +2,7 @@
 
 This guide describes publishing to the public registry at [open-vsx.org](https://open-vsx.org/), which is now managed by the [Eclipse Foundation](https://www.eclipse.org/) ([see the announcement](https://blogs.eclipse.org/post/brian-king/open-vsx-registry-under-new-management)).
 
-Similar steps may apply to registries that are hosted elsewhere, but make sure to pass the correct URL to the [ovsx](https://www.npmjs.com/package/ovsx) tool.
+Similar steps may apply to registries that are hosted elsewhere, but make sure to pass the correct URL to the [`ovsx`](https://www.npmjs.com/package/ovsx) tool.
 
 If you are the author of the extension you wish to publish, proceed with the steps below. If you are not the author, we suggest you first reach out to the author with an issue in their GitHub repo to request that they publish their extension to [open-vsx.org](https://open-vsx.org/). We've drafted a [template](https://github.com/open-vsx/publish-extensions/blob/master/docs/external_contribution_request.md) with suggested content for the issue.
 
@@ -32,7 +32,7 @@ An access token can be used to publish as many extensions as you like, until it 
 
 #### 4. Create the namespace
 
-The `publisher` field in your extension's package.json file defines the namespace in which the extension will be made available. You need to create the namespace in the registry before any extension can be published to it. This is done with the [ovsx](https://www.npmjs.com/package/ovsx) CLI tool. The easiest way to use it is through [npx](https://www.npmjs.com/package/npx), which makes sure you always use the latest version of the tool. Alternatively, install it globally with `npm i -g ovsx`.
+The `publisher` field in your extension's package.json file defines the namespace in which the extension will be made available. You need to create the namespace in the registry before any extension can be published to it. This is done with the [`ovsx`](https://www.npmjs.com/package/ovsx) CLI tool. The easiest way to use it is through [npx](https://www.npmjs.com/package/npx), which makes sure you always use the latest version of the tool. Alternatively, install it globally with `npm i -g ovsx`.
 
 Run the following command, replacing `<name>` with the value of your extension's `publisher` and replacing `<token>` with the previously generated access token value.
 ```
@@ -43,7 +43,7 @@ Creating a namespace does _not_ automatically assign you as verified owner. If y
 
 #### 5. Package and upload
 
-The publishing process involves the two steps package and upload. Both can be done with the same [ovsx](https://www.npmjs.com/package/ovsx) CLI tool that is used to create a namespace.
+The publishing process involves the two steps package and upload. Both can be done with the same [`ovsx`](https://www.npmjs.com/package/ovsx) CLI tool that is used to create a namespace.
 
 If you have an already packaged `.vsix` file, you can publish it by simply running the following command, replacing `<file>` with the path to your extension package and replacing `<token>` with the previously generated access token value.
 ```
