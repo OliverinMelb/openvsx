@@ -1,8 +1,10 @@
 ## How to Publish an Extension
 
-This guide describes publishing to the public registry at [open-vsx.org](https://open-vsx.org), which is now managed by the [Eclipse Foundation](https://www.eclipse.org/) ([see the announcement](https://blogs.eclipse.org/post/brian-king/open-vsx-registry-under-new-management)).
+This guide describes publishing to the public registry at [open-vsx.org](https://open-vsx.org/), which is now managed by the [Eclipse Foundation](https://www.eclipse.org/) ([see the announcement](https://blogs.eclipse.org/post/brian-king/open-vsx-registry-under-new-management)).
 
 Similar steps may apply to registries that are hosted elsewhere, but make sure to pass the correct URL to the [ovsx](https://www.npmjs.com/package/ovsx) tool.
+
+If you are the author of the extension you wish to publish, proceed with the steps below. If you are not the author, we suggest you first reach out to the author with an issue in their GitHub repo to request that they publish their extension to [open-vsx.org](https://open-vsx.org/). We've drafted a [template](https://github.com/open-vsx/publish-extensions/blob/master/docs/external_contribution_request.md) with suggested content for the issue.
 
 #### 1. Create an Eclipse account
 
