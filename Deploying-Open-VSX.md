@@ -58,7 +58,7 @@ COPY --from=builder --chown=openvsx:openvsx /workdir/webui/static/ BOOT-INF/clas
 The command gets the latest release tag name and uses it to build an openvsx image from the DockerFile in the current working directory.
 
 ```
-export OPENVSX_VERSION=`curl https://api.github.com/repos/eclipse/openvsx/releases/latest | jq -r ".tag_name"`
+export OPENVSX_VERSION=`curl -sSL https://api.github.com/repos/eclipse/openvsx/releases/latest | jq -r ".tag_name"`
 ```
 
 ```
