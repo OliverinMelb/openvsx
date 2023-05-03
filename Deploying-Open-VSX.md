@@ -12,7 +12,7 @@ User authentication is done with [OAuth](https://oauth.net). Currently only [Git
 
 ## Getting Started
 
-You can quickly spin up an Open VSX server and webui using the DockerFile below. Additionally you need a [PostgreSQL](https://www.postgresql.org) instance and an [Elasticsearch](https://www.elastic.co/elasticsearch/) instance. To use the user and admin sections of the webui, you need to configure a [GitHub OAuth app](https://docs.github.com/en/free-pro-team@latest/developers/apps/building-oauth-apps)
+You can quickly spin up an Open VSX server and webui using the DockerFile below. Additionally you need a [PostgreSQL](https://www.postgresql.org) instance and an [Elasticsearch](https://www.elastic.co/elasticsearch/) instance. To use the user and admin sections of the webui, you need to configure a [GitHub OAuth app](https://docs.github.com/en/free-pro-team@latest/developers/apps/building-oauth-apps).
 
 ### DockerFile
 
@@ -58,7 +58,11 @@ COPY --from=builder --chown=openvsx:openvsx /workdir/webui/static/ BOOT-INF/clas
 The command gets the latest release tag name and uses it to build an openvsx image from the DockerFile in the current working directory.
 
 ```
-export OPENVSX_VERSION=`curl https://api.github.com/repos/eclipse/openvsx/releases/latest | jq -r ".tag_name"` && docker build -t "openvsx:$OPENVSX_VERSION" --build-arg "OPENVSX_VERSION=$OPENVSX_VERSION" .
+export OPENVSX_VERSION=`curl https://api.github.com/repos/eclipse/openvsx/releases/latest | jq -r ".tag_name"`
+```
+
+```
+docker build -t "openvsx:$OPENVSX_VERSION" --build-arg "OPENVSX_VERSION=$OPENVSX_VERSION" .
 ```
 
 ## Configuring application.yml
