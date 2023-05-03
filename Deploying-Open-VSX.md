@@ -10,6 +10,57 @@ The database holding all metadata of published extensions is a [PostgreSQL](http
 
 User authentication is done with [OAuth](https://oauth.net). Currently only [GitHub](https://docs.github.com/en/free-pro-team@latest/developers/apps/building-oauth-apps) is supported as OAuth provider.
 
+## Getting Started
+
+You can quickly spin up an Open VSX server and webui using the DockerFile below. Additionally you need a [PostgreSQL](https://www.postgresql.org) instance and an [Elasticsearch](https://www.elastic.co/elasticsearch/) instance. To use the user and admin sections of the webui, you need to configure a [GitHub OAuth app](https://docs.github.com/en/free-pro-team@latest/developers/apps/building-oauth-apps)
+
+### DockerFile
+
+```
+ARG OPENVSX_VERSION
+
+# Builder image to compile the website
+FROM ubuntu as builder
+
+WORKDIR /workdir
+
+RUN apt-get update \
+  && apt-get install --no-install-recommends -y \
+    bash \
+    ca-certificates \
+    git \
+    curl \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
+
+# See https://github.com/nodesource/distributions/blob/main/README.md#debinstall
+RUN curl -sSL https://deb.nodesource.com/setup_14.x | bash - \
+  && apt-get install -y nodejs
+
+RUN npm install --global yarn@1.*
+
+ARG OPENVSX_VERSION
+ENV VERSION=$OPENVSX_VERSION
+
+RUN git clone --branch ${VERSION} --depth 1 https://github.com/eclipse/openvsx.git /workdir
+RUN /usr/bin/yarn --cwd webui \
+  && /usr/bin/yarn --cwd webui build \
+  && /usr/bin/yarn --cwd webui build:default
+
+# Main image derived from openvsx-server
+FROM ghcr.io/eclipse/openvsx-server:${OPENVSX_VERSION}
+
+COPY --from=builder --chown=openvsx:openvsx /workdir/webui/static/ BOOT-INF/classes/static/
+```
+
+### Building Open VSX Docker image
+
+The command gets the latest release tag name and uses it to build an openvsx image from the DockerFile in the current working directory.
+
+```
+export OPENVSX_VERSION=`curl https://api.github.com/repos/eclipse/openvsx/releases/latest | jq -r ".tag_name"` && docker build -t "openvsx:$OPENVSX_VERSION" --build-arg "OPENVSX_VERSION=$OPENVSX_VERSION" .
+```
+
 ## Configuring application.yml
 
 The Open VSX server is configured using an `application.yml` file. See the [Spring Boot documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config) for more information on this configuration format.
